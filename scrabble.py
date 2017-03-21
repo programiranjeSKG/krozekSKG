@@ -1,4 +1,5 @@
-
+vrecka={'Č': 1, 'A': 10, 'C': 1, 'B': 2, 'E': 11, 'D': 4, 'G': 2, 'F': 1, 'I': 9, 'H': 1, 'K': 3, 'J': 4, 'M': 2, 'L': 4, 'O': 8, 'N': 7, 'P': 2, 'S': 6, 'R': 6, 'U': 2, 'T': 4, 'V': 4, 'Z': 2, 'Š': 1, 'Ž': 1}
+vrednost={'Č': 5, 'A': 1, 'C': 8, 'B': 4, 'E': 1, 'D': 2, 'G': 4, 'F': 10, 'I': 1, 'H': 5, 'K': 3, 'J': 1, 'M': 3, 'L': 1, 'O': 1, 'N': 1, 'P': 3, 'S': 1, 'R': 1, 'U': 3, 'T': 1, 'V': 2, 'Z': 4, 'Š': 6, 'Ž': 10}
 with open('igralna_plosca.txt', mode='r') as f: #f=open(...)
       vnos = f.read()
 #samodejno f.close()
@@ -85,6 +86,9 @@ def vpisi_v_plosco():
                     enak = True
           else:
                raise ValueError('Polje je zasedeno z drugo črko')
+
+          #tockovanje
+          
 
           tempVr += vrDodaj
           tempSt += stDodaj
