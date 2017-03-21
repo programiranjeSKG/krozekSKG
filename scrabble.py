@@ -26,6 +26,9 @@ for i in range(15):
 
 
 #________branje posamezne vrstice:
+#beseda, smer (D ali R), koordinata vrstice(0 - 14), korrdinata stolpca(0 - 14)
+#primer:
+#morje, D, 4, 5
 def preberi_vnos():
      vnos = input().split(', ')
      vnos[2]=int(vnos[2])
@@ -35,13 +38,19 @@ def preberi_vnos():
 def vpisi_v_plosco():
      #začetek funkcije (poberem novo besedo)
      vnos = preberi_vnos()
-     beseda=vnos[0].upper()
-     smer=vnos[1].upper()
+     #.upper() naredi velike črke
+     beseda = vnos[0].upper()
+     smer = vnos[1].upper()
      vr = vnos[2]
      st = vnos[3]
+     print(plosca)
+     print(beseda)
+     print(smer)
+     print(vr)
+     print(st)
 
 
-
+     #določi smer
      if smer == 'R':
           vrDodaj=0
           stDodaj=1
@@ -50,7 +59,7 @@ def vpisi_v_plosco():
           vrDodaj=0
           stDodaj=-1
           '''
-     if smer == 'D':
+     elif smer == 'D':
           vrDodaj=1
           stDodaj=0
           '''
@@ -60,18 +69,26 @@ def vpisi_v_plosco():
           '''
      #preveri ustreznost:
      enak = False
-     
+     tempVr = vr
+     tempSt = st
      for znj in range(len(beseda)):
-          
-          if vr <= -1 or st <= -1 or vr >= 15 or st >= 15:
+
+          #pregledam robove
+          if tempVr <= -1 or tempSt <= -1 or tempVr >= 15 or tempSt >= 15:
                 print("Napaka!")
                 raise IndexError('padel si s plošče')
 
-          if plosca[vr][st]=='%' or plosca[vr][st] == beseda[znj]:
-               if plosca[vr][st] == beseda[znj]:
+          #pregledam zasedenost
+
+          if plosca[tempVr][tempSt]=='%' or plosca[tempVr][tempSt] == beseda[znj]:
+               if plosca[tempVr][tempSt] == beseda[znj]:
                     enak = True
           else:
                raise ValueError('Polje je zasedeno z drugo črko')
+
+          tempVr += vrDodaj
+          tempSt += stDodaj
+          
 
      if enak == True:
           #zapiši v tabelo
@@ -84,6 +101,7 @@ def vpisi_v_plosco():
      #konec funkcije (dodam besedo v ploščo)
 
 for i in range(5):
+     
      vpisi_v_plosco()
      print(plosca)
 
