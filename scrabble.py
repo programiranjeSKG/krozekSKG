@@ -25,31 +25,18 @@ for i in range(15):
 
 #___________________ '''
 
-
-#________branje posamezne vrstice:
+print('''#________branje posamezne vrstice:
 #beseda, smer (D ali R), koordinata vrstice(0 - 14), korrdinata stolpca(0 - 14)
 #primer:
 #morje, D, 4, 5
+#za prikaz ploske napiši: pokazi, d, 0, 0''')
 def preberi_vnos():
      vnos = input().split(', ')
      vnos[2]=int(vnos[2])
      vnos[3]= int(vnos[3])
      return vnos
 
-def vpisi_v_plosco():
-     #začetek funkcije (poberem novo besedo)
-     vnos = preberi_vnos()
-     #.upper() naredi velike črke
-     beseda = vnos[0].upper()
-     smer = vnos[1].upper()
-     vr = vnos[2]
-     st = vnos[3]
-     print(plosca)
-     print(beseda)
-     print(smer)
-     print(vr)
-     print(st)
-
+def vpisi_v_plosco(beseda, smer, vr, st):
 
      #določi smer
      if smer == 'R':
@@ -104,15 +91,31 @@ def vpisi_v_plosco():
           raise ValueError('Tvoja beseda se ne dotika drugih besed')
      #konec funkcije (dodam besedo v ploščo)
 
+def prikazi_plosco():
+    print(plosca)
+    return
+
 for i in range(5):
+    
+    #začetek funkcije (poberem novo besedo)
+    vnos = preberi_vnos()
+    #.upper() naredi velike črke
+    beseda1 = vnos[0].upper()
+    smer = vnos[1].upper()
+    vr = vnos[2]
+    st = vnos[3]
+
+    if beseda1 == "POKAZI":
+        prikazi_plosco()
+    else:
+        vpisi_v_plosco(beseda1, smer, vr, st)
      
-     vpisi_v_plosco()
-     print(plosca)
 
 
 ##########to do list:
-     '''naredi zalogo črk,
-          točkovanje,
-          več igralcev,
-          shrani igro.'''
+'''naredi zalogo črk, VID URH
+  točkovanje, LEA BRIŠKI
+  več igralcev, 
+  neskoncno kreogov + klomanda za konec URŠA
+  shrani igro.'''
 
